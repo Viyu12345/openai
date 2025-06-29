@@ -1,6 +1,6 @@
 # Amazon's Ancient Ruins
 
-The **Amazons' Ancient Ruins** is a powerful AI + satellite data pipeline designed to detect potential ancient human settlements in the Amazon rainforest. This project combines Sentinel-2 imagery, texts, and spatial data analysis with cutting-edge AI tools to identify regions with archaeological significance. You can check thenew1.py to see how I got the results and proofs of historical sites which I have listed on my /train page. The results got from thenew1.py have been cleared from unwanted stuff and then displayed on the /train page.
+The **Amazons' Ancient Ruins** is a powerful AI + satellite data pipeline designed to detect potential ancient human settlements in the Amazon rainforest. This project combines Sentinel-2 imagery, texts, and spatial data analysis with cutting-edge AI tools to identify regions with archaeological significance. You can check thenew1.py to see how I got the results and proofs of historical sites which I have listed on my /train page. The results got from thenew1.py have been cleared from unwanted words and then displayed on the /train page.
 
 
 
