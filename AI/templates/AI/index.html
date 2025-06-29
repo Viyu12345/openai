@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archaeological Site</title>
+    <style>
+        @font-face {
+            font-family: 'Harry P';
+            src: url('https://www.fontsquirrel.com/fonts/download/harry-p') format('truetype');
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://images.stockcake.com/public/b/9/9/b995d4b2-7aac-4916-919d-c759a803c742_large/old-crumpled-map-stockcake.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            filter: url(#crumple);
+        }
+        h1 {
+            font-family: 'Harry P', cursive;
+            font-size: 4.5em;
+            color: #8B6F47;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), -3px -3px 6px rgba(0, 0, 0, 0.8);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+        .upload-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1;
+        }
+        input[type="file"] {
+            padding: 10px;
+            font-size: 1em;
+        }
+        svg {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <svg>
+        <filter id="crumple">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+    <h1 style="text-align:center">Archaeological Discoveries</h1>
+    <div class="upload-container">
+
+        <form id="uploadForm" method="POST" enctype="multipart/form-data" action="index">
+            {% csrf_token %}
+            <input type="file" id="imageUpload" accept="image/*" name="file_input">
+            <input type="submit">
+            <p>Upload an artifact image</p>
+        </form>
+        {% if answer %}
+        <p style="color:white">{{ answer }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

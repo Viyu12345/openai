@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secrets of the Ancient Ruins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(to bottom, #1a1a1a, #4b3f2f);
+            color: #d4af37;
+            overflow-x: hidden;
+        }
+        .header {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=1920') no-repeat center;
+            background-size: cover;
+            position: relative;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 2s ease-in;
+        }
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.6;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #8b5e3c;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .cta-button:hover {
+            background: #a67c5b;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>Secrets of the Ancient Ruins</h1>
+            <p>Uncover the mysteries of a Amazon's forgotten civilizations, buried beneath the sands of time. Explore archeological sites all around the Amazon</p>
+            <a href="{% url 'index' %}" class="cta-button">Discover the Secrets by Examining Yourself</a>
+            <a href="{% url 'train' %}" class="cta-button">Discover Our Sources</a>
+        </div>
+    </div>
+    <div class="content">
+        <p>Join our expedition to unearth the stories of the past. The ruins await those brave enough to decode their enigma.</p>
+    </div>
+    <script>
+        // Add subtle scroll animation
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.content p');
+            elements.forEach(el => {
+                const position = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (position < windowHeight * 0.8) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
